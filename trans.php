@@ -44,3 +44,4 @@ $translations = [
 header('Content-Type: application/json');
 echo json_encode($translations[$lang]);
 ?>
+ <!-- Nút thao tác -->

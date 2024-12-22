@@ -702,3 +702,4 @@ function changeLanguage(lang) {
 
 </body>
 </html>
+ <!-- Nút thao tác -->

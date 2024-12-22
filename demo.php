@@ -696,6 +696,10 @@ function changeLanguage(lang) {
         })
         .catch(error => console.error('Translation Error:', error));
 }
+
+
     </script>
+
 </body>
 </html>
+ <!-- Nút thao tác -->

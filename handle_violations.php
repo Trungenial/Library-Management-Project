@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -408,7 +409,13 @@
         <a href="#" data-lang-key="about">GIỚI THIỆU</a>
         <a href="#" data-lang-key="book_management">QUẢN LÝ SÁCH</a>
         <a href="#" data-lang-key="borrow_return">QUẢN LÝ MƯỢN - TRẢ SÁCH</a>
-        <a href="#" data-lang-key="violation">XỬ LÝ VI PHẠM</a>
+        <div class="dropdown">
+            <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" data-lang-key="violation">XỬ LÝ VI PHẠM</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="handle_violations.php">Biên bản vi phạm</a></li>
+                <li><a class="dropdown-item" href="Search_violations.php">Tra cứu vi phạm</a></li>
+            </ul>
+        </div>
         <a href="#" data-lang-key="guide">HƯỚNG DẪN</a>
         </div>
         <div class="user">
@@ -486,40 +493,51 @@
         <form>
             <!-- Mã biên bản và Mã thẻ SV -->
             <div class="violation-scrollable">
-            <div class="row mb-3">
+                        <div class="row mb-3">
                 <div class="col-md-6">
                     <label for="maBienBan">Mã biên bản:</label>
-                    <input type="text" class="form-control" id="maBienBan" placeholder="Nhập mã biên bản">
+                    <input type="text" class="form-control" id="maBienBan" 
+                        value="<?php echo htmlspecialchars($data['violation_report_id'] ?? ''); ?>" 
+                        placeholder="Nhập mã biên bản">
                 </div>
                 <div class="col-md-6">
                     <label for="maThe">Mã thẻ SV:</label>
-                    <input type="text" class="form-control" id="maThe" placeholder="Nhập mã thẻ SV">
+                    <input type="text" class="form-control" id="maThe" 
+                        value="<?php echo htmlspecialchars($data['student_id'] ?? ''); ?>" 
+                        placeholder="Nhập mã thẻ SV">
                 </div>
             </div>
 
             <!-- Họ và tên, Mã sách -->
             <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="hoTen">Họ và tên:</label>
-                    <input type="text" class="form-control" id="hoTen" placeholder="Nhập họ và tên">
-                </div>
-                <div class="col-md-6">
-                    <label for="maSach">Mã sách:</label>
-                    <input type="text" class="form-control" id="maSach" placeholder="Nhập mã sách">
-                </div>
-            </div>
+    <div class="col-md-6">
+        <label for="hoTen">Họ và tên:</label>
+        <input type="text" class="form-control" id="hoTen" 
+               value="<?php echo htmlspecialchars($data['student_name'] ?? ''); ?>" 
+               placeholder="Nhập họ và tên">
+    </div>
+    <div class="col-md-6">
+        <label for="maSach">Mã sách:</label>
+        <input type="text" class="form-control" id="maSach" 
+               value="<?php echo htmlspecialchars($data['book_id'] ?? ''); ?>" 
+               placeholder="Nhập mã sách">
+    </div>
+</div>
+
 
             <!-- Ngày mượn sách và Ngày trả sách -->
             <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="ngayMuon">Ngày mượn sách:</label>
-                    <input type="date" class="form-control" id="ngayMuon">
-                </div>
-                <div class="col-md-6">
-                    <label for="ngayTra">Ngày trả sách:</label>
-                    <input type="date" class="form-control" id="ngayTra">
-                </div>
-            </div>
+    <div class="col-md-6">
+        <label for="ngayMuon">Ngày mượn sách:</label>
+        <input type="date" class="form-control" id="ngayMuon" 
+               value="<?php echo htmlspecialchars($data['report_date'] ?? ''); ?>">
+    </div>
+    <div class="col-md-6">
+        <label for="ngayTra">Ngày trả sách:</label>
+        <input type="date" class="form-control" id="ngayTra" 
+               value="<?php echo htmlspecialchars($data['actual_return_date'] ?? ''); ?>">
+    </div>
+</div>
 
             <!-- Nội dung vi phạm -->
             <div class="row mb-3">
@@ -546,49 +564,59 @@
 
             <!-- Mô tả nội dung vi phạm -->
             <div class="row mb-3">
-                <label for="moTa">Mô tả nội dung vi phạm:</label>
-                <textarea id="moTa" class="form-control" placeholder="Nhập mô tả chi tiết"></textarea>
-            </div>
+    <label for="moTa">Mô tả nội dung vi phạm:</label>
+    <textarea id="moTa" class="form-control"><?php echo htmlspecialchars($data['description'] ?? ''); ?></textarea>
+</div>
+
 
             <!-- Số ngày quá hạn và Tiền phạt -->
             <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="soNgay">Số ngày quá hạn:</label>
-                    <input type="number" class="form-control" id="soNgay" placeholder="Nhập số ngày">
-                </div>
-                <div class="col-md-6">
-                    <label for="tienPhat">Tiền phạt:</label>
-                    <input type="text" class="form-control" id="tienPhat" placeholder="VNĐ">
-                </div>
-            </div>
+    <div class="col-md-6">
+        <label for="soTrang">Số trang hư hại:</label>
+        <input type="text" class="form-control" id="soTrang" 
+               value="<?php echo htmlspecialchars($data['number_of_damaged_pages'] ?? ''); ?>" 
+               placeholder="Nhập số trang">
+    </div>
+    <div class="col-md-6">
+        <label for="tienPhat">Tiền phạt:</label>
+        <input type="text" class="form-control" id="tienPhat" 
+               value="<?php echo htmlspecialchars($data['fine_amount'] ?? ''); ?>" 
+               placeholder="VNĐ">
+    </div>
+</div>
              <!-- Số trang hư hại và Tiền phạt -->
              <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="soTrang">Số trang hư hại:</label>
-                    <input type="text" class="form-control" id="soTrang" placeholder="Nhập số trang">
-                </div>
-                <div class="col-md-6">
-                    <label for="tienPhatTrang">Tiền phạt:</label>
-                    <input type="text" class="form-control" id="tienPhatTrang" placeholder="VNĐ">
-                </div>
-            </div>
+    <div class="col-md-6">
+        <label for="soTrang">Số trang hư hại:</label>
+        <input type="text" class="form-control" id="soTrang" 
+               value="<?php echo htmlspecialchars($data['number_of_damaged_pages'] ?? ''); ?>" 
+               placeholder="Nhập số trang">
+    </div>
+    <div class="col-md-6">
+        <label for="tienPhatTrang">Tiền phạt:</label>
+        <input type="text" class="form-control" id="tienPhatTrang" 
+               value="<?php echo htmlspecialchars($data['fine_amount'] ?? ''); ?>" 
+               placeholder="VNĐ">
+    </div>
+</div>
             <!-- Hình thức xử lý -->
             <div class="row mb-3">
-                <label class="mb-2">Hình thức xử lý:</label>
-                <div class="col-md-6">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="phatTien">
-                        <label for="phatTien" class="form-check-label">Phạt tiền</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="traSach">
-                        <label for="traSach" class="form-check-label">Trả sách</label>
-                    </div>
-                </div>
-            </div>
-            </div>
+    <label class="mb-2">Hình thức xử lý:</label>
+    <div class="col-md-6">
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="phatTien"
+                   <?php echo isset($data['violation_handling']) && $data['violation_handling'] == 'Phạt tiền' ? 'checked' : ''; ?>>
+            <label for="phatTien" class="form-check-label">Phạt tiền</label>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="traSach"
+                   <?php echo isset($data['violation_handling']) && $data['violation_handling'] == 'Trả sách' ? 'checked' : ''; ?>>
+            <label for="traSach" class="form-check-label">Trả sách</label>
+        </div>
+    </div>
+</div>
             <!-- Tổng tiền phạt -->
             <div class="total-fine">
     Tổng tiền phạt: <span id="tongTienPhat">0 VNĐ</span>

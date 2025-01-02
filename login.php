@@ -23,6 +23,18 @@
             echo '<script> location.href = "home.php"</script>';
         }
     }
+
+    // đăng nhập vào tài khoản admin
+    if (isset($_POST['submit'])){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $checkuser = $conn->query("SELECT * FROM 'admin' WHERE 
+        username = '".$conn->real_escape_string($username)."'")->fetch_array();
+        if ($username == $checkuser['username'] && $password == $checkuser['password']){
+            $_SESSION['username'] = $username;
+            echo '<script> location.href = "admin.php"</script>';
+        }
+    }
 ?>
 
 <!DOCTYPE html>

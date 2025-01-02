@@ -47,6 +47,30 @@ INSERT INTO `users` (`ID`, `username`, `password`, `email`) VALUES
 (5, 'huhu', '$2y$10$skigaekwlvcDmytnUdT4d.v0F2N7IvcyU38wHAEd5Rp.HjxLvC4pO', 'dfffs@gmail.com');
 COMMIT;
 
+
+
+--
+-- Cấu trúc bảng cho bảng `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `admin`
+--
+
+INSERT INTO `admin` (`ID`, `username`, `password`, `email`) VALUES
+(1, 'quochuy', '2004', 'huy2004@gmail.com'),
+(2, 'tiendong', '2000', 'tiendong@gmail.com');
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

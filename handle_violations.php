@@ -195,7 +195,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="number" class="form-control" id="soTrang" oninput="updateFine()">
                 </div>
                 <div class="col-md-6">
-                    <label for="tienPhatTrang">Tiền phạt (VNĐ)</label>
+                    <label for="tienPhatTrang">Tiền phạt (VNĐ)</l
+                    abel>
                     <input type="text" class="form-control" id="tienPhatTrang" readonly>
                 </div>
             </div>

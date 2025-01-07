@@ -284,6 +284,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     function sendEmail() {
         alert('Email đã được gửi.');
+
     }
     function confirmForm() {
         alert('Thông tin đã được xác nhận.');

@@ -67,6 +67,8 @@
     <input type="email" class="form-control" id="email" name = "email" placeholder="email">
   </div>
   <button type="submit" class="btn btn-primary mt-3" id = "submit" name = "submit">Submit</button>
+  <button type="submit" class="btn btn-primary mt-3" id = "submit" name = "submit">
+    <a style = "color : white; text-decoration: none"  href = "login.php">Đăng nhập</a></button>
 </form>
 </body>
 </html>

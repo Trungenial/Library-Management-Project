@@ -20,6 +20,7 @@
         else 
         {
             $_SESSION['username'] = $username;
+            setcookie("username", $username, time() + 300, "/");
             echo '<script> location.href = "home.php"</script>';
         }
     }
@@ -32,6 +33,7 @@
         username = '".$conn->real_escape_string($username)."'")->fetch_array();
         if ($username == $checkuser['username'] && $password == $checkuser['password']){
             $_SESSION['username'] = $username;
+            setcookie("username", $username, time() + 300, "/");
             echo '<script> location.href = "admin.php"</script>';
         }
     }

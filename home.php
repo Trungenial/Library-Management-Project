@@ -20,6 +20,7 @@
         else 
         {
             $_SESSION['username'] = $username;
+            setcookie("username", $username, time() + 300, "/");
             echo '<script> location.href = ""</script>';
         }
     }
@@ -32,6 +33,7 @@
         username = '".$conn->real_escape_string($username)."'")->fetch_array();
         if ($username == $checkuser['username'] && $password == $checkuser['password']){
             $_SESSION['username'] = $username;
+            setcookie("username", $username, time() + 300, "/");
             echo '<script> location.href = "admin.php"</script>';
         }
     }
@@ -60,13 +62,25 @@
         </style>
     </head>
     <body>
+    <?php
+        if (isset($_SESSION["username"]) || isset($_COOKIE["username"])){
+            $username = isset($_SESSION["username"])?$_SESSION["username"]:$_COOKIE["username"];
+        ?>
+        <span style = "color : black">
+            Xin chào <?php echo $username; ?>
+        </span>
+        <a href = "logout.php"><button type="button" class="btn btn-success btn-lg mt-3 m-3 float-end" id = "submit" name = "submit">
+        Đăng xuất
+    </button></a>
+        <?php }
+        else { ?>
            <!-- Button trigger modal -->
     <button type="button" class="btn btn-success btn-lg mt-3 m-3 float-end" data-bs-toggle="modal" data-bs-target="#login">
         Đăng nhập
     </button>
-    <a href = "logout.php"><button type="button" class="btn btn-success btn-lg mt-3 float-end" id = "submit" name = "submit">
-        Đăng xuất
-    </button></a>
+    <a href = "register.php"><button type="button" class="btn btn-success btn-lg mt-3 float-end" id = "submit" name = "submit">
+        Đăng kí
+    </button></a> <?php } ?>
     <!-- Modal -->
     <div class="modal fade" id="login" tabindex="-1" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog">

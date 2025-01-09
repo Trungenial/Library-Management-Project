@@ -13,8 +13,15 @@
 </head>
 <body>
     <h1>ĐÂY LÀ TRANG WED CỦA ADMIN</h1>
-    <a href = "logout.php"><button type="button" class="btn btn-success btn-lg mt-3 float-end" id = "submit" name = "submit">
+    <?php if (isset($_SESSION["username"]) || isset($_COOKIE["username"])){
+            $username = isset($_SESSION["username"])?$_SESSION["username"]:$_COOKIE["username"];
+        ?>
+        <span style = "color : black">
+            Xin chào Admin: <?php echo $username; ?>
+        </span>
+        <a href = "logout.php"><button type="button" class="btn btn-success btn-lg mt-3 m-3 float-end" id = "submit" name = "submit">
         Đăng xuất
     </button></a>
+        <?php } ?>
 </body>
 </html>

@@ -29,7 +29,7 @@
     if (isset($_POST['submit'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $checkuser = $conn->query("SELECT * FROM 'admin' WHERE 
+        $checkuser = $conn->query("SELECT * FROM admin WHERE 
         username = '".$conn->real_escape_string($username)."'")->fetch_array();
         if ($username == $checkuser['username'] && $password == $checkuser['password']){
             $_SESSION['username'] = $username;

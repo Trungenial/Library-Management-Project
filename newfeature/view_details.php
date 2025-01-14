@@ -96,7 +96,7 @@ $stmt->close();
         </div>
 
         <div class="text-center">
-            <a href="Book_Management.php" class="btn btn-primary">Quay lại</a>
+            <a href="book_management.php" class="btn btn-primary">Quay lại</a>
         </div>
     </div>
 </body>

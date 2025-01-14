@@ -47,7 +47,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <!--CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -68,8 +68,8 @@
               <div class="col-md-6 offset-md-3">
                 <div class="card my-5">
                   <form class="card-body cardbody-color p-lg-5">
-                  <h5 class="text-center text-dark mt-3">Bạn đã nhập sai thông tin vui lòng nhập lại</h5>
-                    <h3 class="text-center text-dark mt-3">Độc giả đăng nhập</h3>
+                  <h5 class="text-center text-dark mt-3"></h5>
+                    <h3 class="text-center text-dark mt-3">Đăng nhập</h3>
                     <div class="text-center">
                       <img src="../images/logo.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
                         width="200px" alt="profile">

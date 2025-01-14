@@ -138,7 +138,7 @@ document.getElementById('violationReportBtn').addEventListener('click', function
         return;
     }
 
-    const url = `Handle_violations.php?book_loan_id=${encodeURIComponent(selectedBookLoanId)}`;
+    const url = `handle_violations.php?book_loan_id=${encodeURIComponent(selectedBookLoanId)}`;
     window.location.href = url;
 });
 

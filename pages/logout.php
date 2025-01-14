@@ -4,5 +4,5 @@
     if (isset($_COOKIE["admin"])) {
         setcookie("admin", "", time() - 300, "/");
     }
-    header("Location:../newfeature/index.php");
+    header("Location:../index.php");
 ?>

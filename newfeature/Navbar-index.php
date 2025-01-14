@@ -160,10 +160,10 @@ $current_page = basename($_SERVER['PHP_SELF']); // Lấy tên file hiện tại
 ?>
 <div class="navbar">
     <div>
-        <a href="Home.php" data-lang-key="home" class="<?php echo ($current_page == 'Home.php') ? 'active' : ''; ?>">TRANG CHỦ</a>
-        <a href="news.php" data-lang-key="news" class="<?php echo ($current_page == 'news.php') ? 'active' : ''; ?>">TIN TỨC</a>
-        <a href="about.php" data-lang-key="about" class="<?php echo ($current_page == 'about.php') ? 'active' : ''; ?>">GIỚI THIỆU</a>
-        <a href="guide.php" data-lang-key="guide" class="<?php echo ($current_page == 'guide.php') ? 'active' : ''; ?>">HƯỚNG DẪN</a>
+        <a href="newfeature/Home.php" data-lang-key="home" class="<?php echo ($current_page == 'Home.php') ? 'active' : ''; ?>">TRANG CHỦ</a>
+        <a href="newfeature/news.php" data-lang-key="news" class="<?php echo ($current_page == 'news.php') ? 'active' : ''; ?>">TIN TỨC</a>
+        <a href="newfeature/about.php" data-lang-key="about" class="<?php echo ($current_page == 'about.php') ? 'active' : ''; ?>">GIỚI THIỆU</a>
+        <a href="newfeature/guide.php" data-lang-key="guide" class="<?php echo ($current_page == 'guide.php') ? 'active' : ''; ?>">HƯỚNG DẪN</a>
     </div>
     <!--session & cookei-->
     <div style = "float: right">
@@ -174,7 +174,7 @@ $current_page = basename($_SERVER['PHP_SELF']); // Lấy tên file hiện tại
         <span style = "color : white">
             Xin chào <?php echo $username; ?>
         </span>
-        <button class="btn btn-success btn-lg mt-3 float-end"><a href = "../pages/logout.php">Đăng xuất</a></button>
+        <button class="btn btn-success btn-lg mt-3 float-end"><a href = "./pages/logout.php">Đăng xuất</a></button>
         <img src="https://cdn-icons-png.flaticon.com/512/197/197473.png" alt="Vietnam" 
              onclick="changeLanguage('vi')" style="cursor: pointer;">
         <img src="https://cdn-icons-png.flaticon.com/512/197/197374.png" alt="English" 
@@ -182,7 +182,7 @@ $current_page = basename($_SERVER['PHP_SELF']); // Lấy tên file hiện tại
         <?php }
             else {?>
             <div class="user">
-        <a href="../pages/login.php" data-lang-key="login" style = "float: right"><i class="fas fa-user" ></i> Đăng nhập</a>
+        <a href="./pages/login.php" data-lang-key="login" style = "float: right"><i class="fas fa-user" ></i>Đăng nhập</a>
         <img src="https://cdn-icons-png.flaticon.com/512/197/197473.png" alt="Vietnam" 
              onclick="changeLanguage('vi')" style="cursor: pointer;">
         <img src="https://cdn-icons-png.flaticon.com/512/197/197374.png" alt="English" 

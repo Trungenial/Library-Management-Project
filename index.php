@@ -1,6 +1,6 @@
 
 <?php
-require 'connect_data.php'; // Import kết nối và các hàm
+require 'newfeature/connect_data.php'; // Import kết nối và các hàm
 
 // Truy vấn lấy danh mục từ bảng category
 $sql = $query = "
@@ -29,7 +29,7 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="Handle_violations.css">
+    <link rel="stylesheet" href="newfeature/Handle_violations.css">
     <title>Trang chủ</title>
     <style>
 
@@ -216,7 +216,7 @@ main {
     <!-- Navbar -->
     <?php 
     $current_page = basename($_SERVER['PHP_SELF']); 
-        include 'Navbar-index.php';
+        include 'newfeature/Navbar-index.php';
     ?>
     <main>
     <div class="statistics">

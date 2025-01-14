@@ -1,8 +1,8 @@
 <?php
     $servername="localhost";
-    $username="root";
-    $password="";
-    $dbname="library";
+    $username="trntru6_library";
+    $password="group1";
+    $dbname="trntru6_library";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 

@@ -123,7 +123,7 @@ $current_page = basename($_SERVER['PHP_SELF']); // Lấy tên file hiện tại
         <a href="guide.php" data-lang-key="guide" class="<?php echo ($current_page == 'guide.php') ? 'active' : ''; ?>">HƯỚNG DẪN</a>
     </div>
     <div class="user">
-        <a href="login.php" data-lang-key="login"><i class="fas fa-user"></i> Đăng nhập</a>
+        <a href="../pages/login.php" data-lang-key="login"><i class="fas fa-user"></i> Đăng nhập</a>
         <img src="https://cdn-icons-png.flaticon.com/512/197/197473.png" alt="Vietnam" 
              onclick="changeLanguage('vi')" style="cursor: pointer;">
         <img src="https://cdn-icons-png.flaticon.com/512/197/197374.png" alt="English" 

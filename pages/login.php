@@ -56,7 +56,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
-<form method = "POST">
+<form method = "POST" target="login.php">
     <div class="mb-3">
         <?php
         if (isset($_POST['submit']) && $thongbao != ""){ ?>
@@ -71,7 +71,7 @@
                   <h5 class="text-center text-dark mt-3">Bạn đã nhập sai thông tin vui lòng nhập lại</h5>
                     <h3 class="text-center text-dark mt-3">Độc giả đăng nhập</h3>
                     <div class="text-center">
-                      <img src="images/logo.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                      <img src="../images/logo.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
                         width="200px" alt="profile">
                     </div>
                     <div class="mb-3" style = "display: flex; justify-content: center; gap: 20px;">

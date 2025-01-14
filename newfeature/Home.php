@@ -1,4 +1,7 @@
 <?php
+session_start();
+?>
+<?php
 require 'connect_data.php'; // Import kết nối và các hàm
 
 // Truy vấn lấy danh mục từ bảng category

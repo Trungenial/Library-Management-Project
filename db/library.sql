@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 29, 2024 at 02:00 PM
+-- Generation Time: Jan 14, 2025 at 04:46 AM
 -- Server version: 9.1.0
 -- PHP Version: 8.3.14
 
@@ -5806,6 +5806,7 @@ CREATE TABLE IF NOT EXISTS `student` (
   `address` varchar(200) NOT NULL,
   `account_id` int DEFAULT NULL,
   PRIMARY KEY (`student_id`),
+  UNIQUE KEY `account_id_2` (`account_id`),
   KEY `account_id` (`account_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -6880,7 +6881,7 @@ INSERT INTO `users` (`ID`, `username`, `password`, `email`, `role_id`) VALUES
 (11, 'JY9pWaqoqaZ', '220259545a1ce74d4f409f45f9ffe36c', 'JY9pWaqoqaZ@example.com', 1),
 (12, '9UWuXgpdB', 'acf65fec14a2b84b6cd5775c3b259494', '9UWuXgpdB@example.com', 1),
 (13, 'fTSWK', '7bcaeba07656b97bcc8e18b45915436d', 'fTSWK@example.com', 1),
-(14, '9pn3sXjvVmBMk11kBbq', 'f2ed812f62d2579663ea6430aab4a6fe', '9pn3sXjvVmBMk11kBbq@example.com', 3),
+(14, '9pn3sXjvVmBMk11kBbq', 'f2ed812f62d2579663ea6430aab4a6fe', '9pn3sXjvVmBMk11kBbq@example.com', 1),
 (15, '8GkZt0DXiEAY', '643a554f1894ff07278f133a122a5498', '8GkZt0DXiEAY@example.com', 1),
 (16, 'SEd4cKXDbzRIYdTv', '741ba125d6799d0fefe20b414dc9a626', 'SEd4cKXDbzRIYdTv@example.com', 1),
 (17, '3YwRhBtcL4tTgCzx', '7935242b9f7dd4d9d70860585cb1029a', '3YwRhBtcL4tTgCzx@example.com', 1),
@@ -7084,7 +7085,7 @@ INSERT INTO `users` (`ID`, `username`, `password`, `email`, `role_id`) VALUES
 (215, 'DOzGj', '6ea1f66f94adc66327b7caf8aa853fa1', 'DOzGj@example.com', 1),
 (216, 'Hr3IZy2yiN4i6x', 'ed8c4ea60b7d7afde3f2367d637fb2ec', 'Hr3IZy2yiN4i6x@example.com', 1),
 (217, 'GcgQ9QXvceNlA', '36b54838ef12abe9516e333ffa1c6cbf', 'GcgQ9QXvceNlA@example.com', 1),
-(218, 'rXNuOKZNP2TYTL3clo', 'aae5fb39dbb088fe9a42810337ffa43d', 'rXNuOKZNP2TYTL3clo@example.com', 2),
+(218, 'rXNuOKZNP2TYTL3clo', 'aae5fb39dbb088fe9a42810337ffa43d', 'rXNuOKZNP2TYTL3clo@example.com', 1),
 (219, 'wz2vb8Mzz', '43048bfd1326c1bd3a1db43b204b8f6a', 'wz2vb8Mzz@example.com', 1),
 (220, 'JAHhwqN8Kll', 'f6a9930248001eda10f4786709e73b9d', 'JAHhwqN8Kll@example.com', 1),
 (221, 'gfiBgCr3XPLwtoTytjl', '9ccfd857635203e715191c81bf684bd5', 'gfiBgCr3XPLwtoTytjl@example.com', 1),
@@ -7161,7 +7162,7 @@ INSERT INTO `users` (`ID`, `username`, `password`, `email`, `role_id`) VALUES
 (292, 'IexjDA6', '4f19a33776685fca220fc1654603ab03', 'IexjDA6@example.com', 1),
 (293, '4Zoje89bMHrg', 'fc8b5fb4b258a3efc477a66d87181af3', '4Zoje89bMHrg@example.com', 1),
 (294, '9g21zKD', '4476cfc354fc8c775347d93537773062', '9g21zKD@example.com', 1),
-(295, 'OjzwgtJ8ZWB9', 'ef4ef47ffe7cba6afa431d0b09a7ae04', 'OjzwgtJ8ZWB9@example.com', 2),
+(295, 'OjzwgtJ8ZWB9', 'ef4ef47ffe7cba6afa431d0b09a7ae04', 'OjzwgtJ8ZWB9@example.com', 1),
 (296, '86MmlGqk0mjs0ivup0w1', '4c955ab93d102bad05ff6d2abc474e8b', '86MmlGqk0mjs0ivup0w1@example.com', 1),
 (297, 'FFWpoMq3o', 'a400a9c0d7fa6e1a2ad010f02313c88c', 'FFWpoMq3o@example.com', 1),
 (298, 'lvMq8yHILjnpqEot', '5facebedfecd3eece383e1818715051c', 'lvMq8yHILjnpqEot@example.com', 1),
@@ -7217,7 +7218,7 @@ INSERT INTO `users` (`ID`, `username`, `password`, `email`, `role_id`) VALUES
 (348, 'oIBthrPRo', '6342bf4b464555b541f5a528a26cba75', 'oIBthrPRo@example.com', 1),
 (349, 'BpNvlHRU4jI', '2da1ce2313c6546085b67e75790c55e3', 'BpNvlHRU4jI@example.com', 1),
 (350, 'WWfM4v8sz5BgsvND', 'd814c058ad73eea66bce8abd7601536c', 'WWfM4v8sz5BgsvND@example.com', 1),
-(351, 'TCawtM4b', '4d7f4d42f6a9bed2c15b37ae096d20ce', 'TCawtM4b@example.com', 2),
+(351, 'TCawtM4b', '4d7f4d42f6a9bed2c15b37ae096d20ce', 'TCawtM4b@example.com', 1),
 (352, 'K4SeHex5M', 'd868abe594c37644346902fba5056732', 'K4SeHex5M@example.com', 1),
 (353, 'Q6ayluGNMpxebp', '44c5be6d8258863c40b9d239edfa4289', 'Q6ayluGNMpxebp@example.com', 1),
 (354, 'u8sqc', '10b2337312768eae971db2a0238bff16', 'u8sqc@example.com', 1),
@@ -7274,7 +7275,7 @@ INSERT INTO `users` (`ID`, `username`, `password`, `email`, `role_id`) VALUES
 (405, 'gzZRPhZQlmY', 'adcde10248a09cabf1473f97cddbbce1', 'gzZRPhZQlmY@example.com', 1),
 (406, '5HBOcWQBWydc', '2bce33abfc9b4217be161508b3a706f7', '5HBOcWQBWydc@example.com', 1),
 (407, 'GU69tGu4pf7JQoND4', '08dff0029453e51637f4a0e1f0c49c93', 'GU69tGu4pf7JQoND4@example.com', 1),
-(408, 'RhpyHylZBTsEgR9', 'ca446c8a4bbe610cbf392d6e5ba9207d', 'RhpyHylZBTsEgR9@example.com', 2),
+(408, 'RhpyHylZBTsEgR9', 'ca446c8a4bbe610cbf392d6e5ba9207d', 'RhpyHylZBTsEgR9@example.com', 1),
 (409, 'vOksDhy', '8bd7b450ffb3628524aa6bb94b490e1b', 'vOksDhy@example.com', 1),
 (410, 'lJH7af', '85a70f8a596fc802570050d05fd32d51', 'lJH7af@example.com', 1),
 (411, 'LKn1b2NxDefAJgfVti', 'bfd17b5adfa673bcede37c92cc7d467f', 'LKn1b2NxDefAJgfVti@example.com', 1),
@@ -7352,7 +7353,7 @@ INSERT INTO `users` (`ID`, `username`, `password`, `email`, `role_id`) VALUES
 (483, 'gEoHPHgoQ90lHAH26Q', 'c6cbca0b3c26d2ae4a79c410c8cd1ffb', 'gEoHPHgoQ90lHAH26Q@example.com', 1),
 (484, 'pOxNT1B', 'd8583bcec17358f29d049ae8387cdc49', 'pOxNT1B@example.com', 1),
 (485, 'apFuMIm0HavCY2b0V', '4a73db16fbe37b2f1cd37b77ba5e2276', 'apFuMIm0HavCY2b0V@example.com', 1),
-(486, 'SU4WngmiEiHnov', '3db29524bc8bfe83cde81c724d48bd56', 'SU4WngmiEiHnov@example.com', 2),
+(486, 'SU4WngmiEiHnov', '3db29524bc8bfe83cde81c724d48bd56', 'SU4WngmiEiHnov@example.com', 1),
 (487, 'B7Gsb25zIQ', '110288bb184b166cbca46312182c2a70', 'B7Gsb25zIQ@example.com', 1),
 (488, 'TAo1Q2XS', 'd9ae80a43abc5c96fc8c3d3da4438c4b', 'TAo1Q2XS@example.com', 1),
 (489, 'H8Qqg', 'eedc366801d28b0f0c5f4eac7b1fefa7', 'H8Qqg@example.com', 1),
@@ -7443,13 +7444,13 @@ INSERT INTO `users` (`ID`, `username`, `password`, `email`, `role_id`) VALUES
 (573, 'jUW8VOs', '5bd450bcbe172ddcd1b82438d1b63c44', 'jUW8VOs@example.com', 1),
 (574, 'BBjBG', 'adc6c965f8853f151474eee063232d56', 'BBjBG@example.com', 1),
 (575, '24L8GzjYYB3Yvyv', 'd42e06e4fdf0b444c76728ead6447e7e', '24L8GzjYYB3Yvyv@example.com', 1),
-(576, 'xHa7xYDTzEubPSL', '695ad6b41d0bf96fc676557de1c60ed9', 'xHa7xYDTzEubPSL@example.com', 2),
+(576, 'xHa7xYDTzEubPSL', '695ad6b41d0bf96fc676557de1c60ed9', 'xHa7xYDTzEubPSL@example.com', 1),
 (577, 'wH3p7MOoDdzbumU', '36c6d373273020cee62c3fec7f575238', 'wH3p7MOoDdzbumU@example.com', 1),
 (578, '0c8TQeR', '5c7f250f40cfd6a7d11fb48ecb1a628b', '0c8TQeR@example.com', 1),
 (579, 'lQBCqkkbVr8B0', '4385157ba422e32ba386a81182e48dad', 'lQBCqkkbVr8B0@example.com', 1),
 (580, 'aZPNkgnvlcwUoh4b', 'e592090aac55aba9909b5e9ef2e41e47', 'aZPNkgnvlcwUoh4b@example.com', 1),
 (581, 'mC8g3z803x', '348113437aef36c862c534cd48534029', 'mC8g3z803x@example.com', 1),
-(582, 'INCp24DKd0R', 'd866c761753635676409bed9891017be', 'INCp24DKd0R@example.com', 2),
+(582, 'INCp24DKd0R', 'd866c761753635676409bed9891017be', 'INCp24DKd0R@example.com', 1),
 (583, 'WHQaS38WrTS5V', 'c375e98a4f0e8fbfaebe4c1d315a0c04', 'WHQaS38WrTS5V@example.com', 1),
 (584, 'nxnc7qYCKc4d4Newtp2', 'f6562e6ce6802aa9a56bfe1419db76e9', 'nxnc7qYCKc4d4Newtp2@example.com', 1),
 (585, 'NC3Hj', '4f558c31bc66a6c8588d21b9d39ed427', 'NC3Hj@example.com', 1),
@@ -7460,7 +7461,7 @@ INSERT INTO `users` (`ID`, `username`, `password`, `email`, `role_id`) VALUES
 (590, 'ZDmx6Gqrmr', 'f954eec6b1941afcfd9a14ced6805ccc', 'ZDmx6Gqrmr@example.com', 1),
 (591, 'UxJmXm7WnM', '7938734f04c8846d64f168d86fa8376c', 'UxJmXm7WnM@example.com', 1),
 (592, '6waOWFA', '10e02ddb8779e3144ec4d03414345fd1', '6waOWFA@example.com', 1),
-(593, 'PDDGfTDsjAc', '287213161f47f1103b556e6748399661', 'PDDGfTDsjAc@example.com', 2),
+(593, 'PDDGfTDsjAc', '287213161f47f1103b556e6748399661', 'PDDGfTDsjAc@example.com', 1),
 (594, '4LQVAhhYc1uQ1aI', '4ae60279d84f9f9cb4c4ee5299c63319', '4LQVAhhYc1uQ1aI@example.com', 1),
 (595, 'T6ZVVTzLwX', '4c27de47c8e0754a57a1253d4ccf3c63', 'T6ZVVTzLwX@example.com', 1),
 (596, 'rQlBe', '7046f3fd5b1a83a30208d0c0de620623', 'rQlBe@example.com', 1),
@@ -7531,7 +7532,7 @@ INSERT INTO `users` (`ID`, `username`, `password`, `email`, `role_id`) VALUES
 (661, 'cBJh9999t7VLzN5zQyz', '1a6877ca84a1ac1aaca2842604ef4edd', 'cBJh9999t7VLzN5zQyz@example.com', 1),
 (662, 'Lf44s8kcgmVrNWozULU', '48e517df6f234d4e663a5764cb049ac6', 'Lf44s8kcgmVrNWozULU@example.com', 1),
 (663, 'aOJHLLcANOjjiz', 'f4936de6fe75e6a33d681734da5cefa4', 'aOJHLLcANOjjiz@example.com', 1),
-(664, 'CH8o9WKsDxHVsG1', '655d593a935a57757538376ee6e7e862', 'CH8o9WKsDxHVsG1@example.com', 2),
+(664, 'CH8o9WKsDxHVsG1', '655d593a935a57757538376ee6e7e862', 'CH8o9WKsDxHVsG1@example.com', 1),
 (665, 'c96I9W7', '67c87f56312eb2e7cc1f7d3303561fec', 'c96I9W7@example.com', 1),
 (666, 'TfZl3gz0Iw9ugyQ6', '30de23e2fe5dfa0ac22d2e767a584edb', 'TfZl3gz0Iw9ugyQ6@example.com', 1),
 (667, 'kOsWyjsB9A8Mid4T2', 'db5a9cba3cedf8db014c6a7f5f384699', 'kOsWyjsB9A8Mid4T2@example.com', 1),
@@ -7868,16 +7869,16 @@ INSERT INTO `users` (`ID`, `username`, `password`, `email`, `role_id`) VALUES
 (998, '1Gzvf0', 'd8317167843d2080834ee963bb6c2b2b', '1Gzvf0@example.com', 1),
 (999, 'amT9Z8kgBFON8aHdS', 'a167dc16ab7fb96c13c5b48bef83bde6', 'amT9Z8kgBFON8aHdS@example.com', 1),
 (1000, 'IrkaVHpu8w3B4nlG', '77735d2e439471c863bc7c93539be580', 'IrkaVHpu8w3B4nlG@example.com', 1),
-(1001, 'iDVM9JQhNPuxVG5uHJD', 'f4256475d313ff8d59b3a0b799bd417b', 'iDVM9JQhNPuxVG5uHJD@example.com', 1),
-(1002, 'LSnEkI5OTsxhyF', 'b932c06563dd0d8ab25197c65025e140', 'LSnEkI5OTsxhyF@example.com', 1),
-(1003, 'F1CYewAnY', '1a279642f52ee41034c145f70ed428dc', 'F1CYewAnY@example.com', 1),
-(1004, 'pbQ6RccDr84', '3fa18a25d6f51b3484213f0a51fac5da', 'pbQ6RccDr84@example.com', 1),
-(1005, 'sYICrqPg', 'd0775a52fcc276aaa66e9ea9928443fb', 'sYICrqPg@example.com', 1),
-(1006, 'bQIbq', '419af43ce6f596d279307a41f939d63d', 'bQIbq@example.com', 1),
-(1007, 'Gi2m89nMJxtS8SN9wUpX', '74f09dc31808d16a5b6c73e439b704b8', 'Gi2m89nMJxtS8SN9wUpX@example.com', 1),
-(1008, 'okJUA', '0acd999ac16cc29d70e59dbcd9bb3173', 'okJUA@example.com', 1),
-(1009, 'bl3AOA7bWa', '45fae0148c062671009cba2791d4da3c', 'bl3AOA7bWa@example.com', 1),
-(1010, 'a6LOgLGaBy', 'd5319300377c8a7968b9b0098697d65b', 'a6LOgLGaBy@example.com', 1);
+(1001, 'iDVM9JQhNPuxVG5uHJD', 'f4256475d313ff8d59b3a0b799bd417b', 'iDVM9JQhNPuxVG5uHJD@example.com', 2),
+(1002, 'LSnEkI5OTsxhyF', 'b932c06563dd0d8ab25197c65025e140', 'LSnEkI5OTsxhyF@example.com', 2),
+(1003, 'F1CYewAnY', '1a279642f52ee41034c145f70ed428dc', 'F1CYewAnY@example.com', 2),
+(1004, 'pbQ6RccDr84', '3fa18a25d6f51b3484213f0a51fac5da', 'pbQ6RccDr84@example.com', 2),
+(1005, 'sYICrqPg', 'd0775a52fcc276aaa66e9ea9928443fb', 'sYICrqPg@example.com', 2),
+(1006, 'bQIbq', '419af43ce6f596d279307a41f939d63d', 'bQIbq@example.com', 2),
+(1007, 'Gi2m89nMJxtS8SN9wUpX', '74f09dc31808d16a5b6c73e439b704b8', 'Gi2m89nMJxtS8SN9wUpX@example.com', 2),
+(1008, 'okJUA', '0acd999ac16cc29d70e59dbcd9bb3173', 'okJUA@example.com', 2),
+(1009, 'bl3AOA7bWa', '45fae0148c062671009cba2791d4da3c', 'bl3AOA7bWa@example.com', 2),
+(1010, 'a6LOgLGaBy', 'd5319300377c8a7968b9b0098697d65b', 'a6LOgLGaBy@example.com', 3);
 
 -- --------------------------------------------------------
 

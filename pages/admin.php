@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+    include_once ('config.php');?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,15 +15,17 @@
 </head>
 <body>
     <h1>ĐÂY LÀ TRANG WED CỦA ADMIN</h1>
-    <?php if (isset($_SESSION["username"]) || isset($_COOKIE["username"])){
-            $username = isset($_SESSION["username"])?$_SESSION["username"]:$_COOKIE["username"];
+    <!--session & cookei-->
+    <div style = "float: right">
+        <?php
+            if (isset($_SESSION["admin"]) || isset($_COOKIE["admin"])){
+                $username = isset($_SESSION["admin"])?$_SESSION["admin"]:$_COOKIE["admin"];
         ?>
         <span style = "color : black">
-            Xin chào Admin: <?php echo $username; ?>
+            Xin chào <?php echo $username; ?>
         </span>
-        <a href = "logout.php"><button type="button" class="btn btn-success btn-lg mt-3 m-3 float-end" id = "submit" name = "submit">
-        Đăng xuất
-    </button></a>
+        <button class="btn btn-success btn-lg mt-3 float-end"><a href = "logout.php">Đăng xuất</a></button>
         <?php } ?>
+    </div>
 </body>
 </html>

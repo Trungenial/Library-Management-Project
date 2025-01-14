@@ -216,7 +216,7 @@ main {
     <!-- Navbar -->
     <?php 
     $current_page = basename($_SERVER['PHP_SELF']); 
-        include 'Navbar.php';
+        include 'Navbar-index.php';
     ?>
     <main>
     <div class="statistics">

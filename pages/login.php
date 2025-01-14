@@ -38,7 +38,7 @@
             
             $_SESSION['admin'] = $username;
             setcookie("admin", $username, time() + 300, "/");
-            header("Location:admin.php");
+            header("Location:../newfeature/Home.php");
         }
     }
 ?>

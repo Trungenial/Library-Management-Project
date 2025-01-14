@@ -1,8 +1,8 @@
 <?php
     session_start();
-    unset($_SESSION["username"]);
-    if (isset($_COOKIE["username"])) {
-        setcookie("username", "", time() - 300, "/");
+    unset($_SESSION["admin"]);
+    if (isset($_COOKIE["admin"])) {
+        setcookie("admin", "", time() - 300, "/");
     }
-    header("Location: home.php");
+    header("Location:../newfeature/index.php");
 ?>

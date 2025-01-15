@@ -1,10 +1,9 @@
 <?php
 // connect_data.php
-session_start();
 $host = 'localhost';
-$user = 'root';
-$password = '';
-$database = 'library'; 
+$user = 'trntru6_library';
+$password = 'group1';
+$database = 'trntru6_library'; 
 $conn = new mysqli($host, $user, $password, $database);
 
 if ($conn->connect_error) {

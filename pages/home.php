@@ -1,7 +1,9 @@
 <?php
+    session_start();
     include_once('config.php');
 
     $thongbao = "";
+    $x = $_POST['submit'];
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];

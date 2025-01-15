@@ -161,9 +161,9 @@ $current_page = basename($_SERVER['PHP_SELF']); // Lấy tên file hiện tại
 <div class="navbar">
     <div>
         <a href="newfeature/Home.php" data-lang-key="home" class="<?php echo ($current_page == 'Home.php') ? 'active' : ''; ?>">TRANG CHỦ</a>
-        <a href="newfeature/news.php" data-lang-key="news" class="<?php echo ($current_page == 'news.php') ? 'active' : ''; ?>">TIN TỨC</a>
-        <a href="newfeature/about.php" data-lang-key="about" class="<?php echo ($current_page == 'about.php') ? 'active' : ''; ?>">GIỚI THIỆU</a>
-        <a href="newfeature/guide.php" data-lang-key="guide" class="<?php echo ($current_page == 'guide.php') ? 'active' : ''; ?>">HƯỚNG DẪN</a>
+        <a href="#" data-lang-key="news" class="<?php echo ($current_page == 'news.php') ? 'active' : ''; ?>">TIN TỨC</a>
+        <a href="#" data-lang-key="about" class="<?php echo ($current_page == 'about.php') ? 'active' : ''; ?>">GIỚI THIỆU</a>
+        <a href="#" data-lang-key="guide" class="<?php echo ($current_page == 'guide.php') ? 'active' : ''; ?>">HƯỚNG DẪN</a>
     </div>
     <!--session & cookei-->
     <div style = "float: right">

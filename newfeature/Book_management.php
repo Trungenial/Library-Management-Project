@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if ($_SESSION['admin'] == null || $_SESSION['admin'] == '' || !isset($_SESSION['admin'])) {
+    header('Location: ../index.php');
+    exit();
+} else {
+?>
+<?php
 require 'connect_data.php'; // Kết nối database
 $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 $searchResults = [];
@@ -843,3 +851,5 @@ function editBook(bookId) {
   </div>
 </body>
 </html>
+<?php
+}

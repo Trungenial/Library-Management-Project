@@ -1,5 +1,12 @@
 
 <?php
+session_start();
+
+if ($_SESSION['admin'] == null || $_SESSION['admin'] == '' || !isset($_SESSION['admin'])) {
+    header('Location: ../index.php');
+    exit();
+} else {
+
 require 'connect_data.php'; // Import kết nối và các hàm
 
 // Truy vấn lấy danh mục từ bảng category
@@ -371,3 +378,6 @@ main {
    
 </body>
 </html> 
+
+<?php
+}

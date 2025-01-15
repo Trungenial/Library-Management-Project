@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if ($_SESSION['admin'] == null || $_SESSION['admin'] == '' || !isset($_SESSION['admin'])) {
+    header('Location: ../index.php');
+    exit();
+} else {
+?>
+<?php
 require 'connect_data.php'; // Kết nối database
 
 // Kiểm tra nếu book_id được truyền qua URL
@@ -101,3 +109,5 @@ $stmt->close();
     </div>
 </body>
 </html>
+<?php
+}

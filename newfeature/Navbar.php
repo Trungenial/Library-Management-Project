@@ -161,12 +161,12 @@ $current_page = basename($_SERVER['PHP_SELF']); // Lấy tên file hiện tại
 <div class="navbar">
     <div>
         <a href="Home.php" data-lang-key="home" class="<?php echo ($current_page == 'Home.php') ? 'active' : ''; ?>">TRANG CHỦ</a>
-        <a href="news.php" data-lang-key="news" class="<?php echo ($current_page == 'news.php') ? 'active' : ''; ?>">TIN TỨC</a>
-        <a href="about.php" data-lang-key="about" class="<?php echo ($current_page == 'about.php') ? 'active' : ''; ?>">GIỚI THIỆU</a>
+        <a href="#" data-lang-key="news" class="<?php echo ($current_page == 'news.php') ? 'active' : ''; ?>">TIN TỨC</a>
+        <a href="#" data-lang-key="about" class="<?php echo ($current_page == 'about.php') ? 'active' : ''; ?>">GIỚI THIỆU</a>
         <a href="book_management.php" data-lang-key="book_management" class="<?php echo ($current_page == 'book_management.php') ? 'active' : ''; ?>">QUẢN LÝ SÁCH</a>
         <a href="Module-Mượn-Trả/book-lending-returning.php" data-lang-key="book-lending-returning.php" class="<?php echo ($current_page == 'book-lending-returning.php') ? 'active' : ''; ?>">QUẢN LÝ MƯỢN - TRẢ SÁCH</a>
         <a href="Search_violations.php" data-lang-key="violation" class="<?php echo ($current_page == 'Handle_violations.php' || $current_page == 'Information_violations.php' || $current_page == 'Search_violations.php') ? 'active' : ''; ?>">XỬ LÝ VI PHẠM</a>
-        <a href="guide.php" data-lang-key="guide" class="<?php echo ($current_page == 'guide.php') ? 'active' : ''; ?>">HƯỚNG DẪN</a>
+        <a href="#" data-lang-key="guide" class="<?php echo ($current_page == 'guide.php') ? 'active' : ''; ?>">HƯỚNG DẪN</a>
     </div>
     <!--session & cookei-->
     <div style = "float: right">

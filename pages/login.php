@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include_once ('config.php');?>
 <?php
     $thongbao = "";
@@ -22,7 +23,7 @@
             
             $_SESSION['username'] = $username;
             setcookie("username", $username, time() + 300, "/");
-            header("Location:home.php");
+            header("Location:../index.php");
         }
     } 
 
@@ -37,7 +38,7 @@
         && $checktype == $checkadmin['role_id'] && $checktype != 1) {
             
             $_SESSION['admin'] = $username;
-            setcookie("admin", $username, time() + 300, "/");
+            setcookie("admin", $username, time() + 3000, "/");
             header("Location:../newfeature/Home.php");
         }
     }
@@ -101,7 +102,7 @@
               </div>
             </div>
           </div>
-        <!--<label><h5> Độc giả đăng nhập</h5></label>
+        <!--<label></label>
         <input type="text" class="form-control" id="username" name  = "username" aria-describedby="emailHelp"
             placeholder="Mã số thẻ">
         </div>

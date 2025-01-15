@@ -95,7 +95,7 @@
                     </div>
                     <div class="text-center"><button type="submit" 
                     class="btn btn-primary px-5 mb-2 w-50" id = "submit" name = "submit">Đăng nhập</button>
-                    <a href="home.php" class="btn btn-primary px-5 w-50 mb-3">Trang chủ</a>
+                    <a href="../index.php" class="btn btn-primary px-5 w-50 mb-3">Trang chủ</a>
                     </div>
                   </form>
                 </div>

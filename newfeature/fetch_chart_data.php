@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+if ($_SESSION['admin'] == null || $_SESSION['admin'] == '' || !isset($_SESSION['admin'])) {
+    header('Location: ../index.php');
+    exit();
+} else {
+?>
+
+<?php
 require 'connect_data.php'; // Kết nối database
 
 // Truy vấn lấy số lượt mượn theo thể loại sách
@@ -34,3 +43,5 @@ header('Content-Type: application/json');
 echo json_encode($data);
 $conn->close();
 ?>
+<?php
+}

@@ -1,9 +1,55 @@
+<?php
+    include_once('connect_data.php');
+
+    $thongbao = "";
+    if (isset($_POST['submit'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $checktype = $_POST['check'];
+        $checkuser = $conn->query("SELECT * FROM users WHERE username = '" . $conn->real_escape_string($username) . "'")->fetch_array();
+
+        if ($username == "" || $password == "") {
+            $thongbao = "Vui lòng nhập đầy đủ thông tin";
+        } else if (empty($checkuser) || $checktype != $checkuser['role_id'] || $checktype != 1) {
+            $thongbao = "Tên tài khoản không tồn tại";
+        } else if (!password_verify($password, $checkuser['password'])) {
+            $thongbao = "Sai mật khẩu";
+        } else {
+            $_SESSION['username'] = $username;
+            setcookie("username", $username, time() + 300, "/");
+            header("Location:home.php");
+        }
+    }
+
+    // Đăng nhập vào tài khoản admin
+    if (isset($_POST['submit'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $checktype = $_POST['check'];
+        $checkadmin = $conn->query("SELECT * FROM users WHERE username = '" . $conn->real_escape_string($username) . "'")->fetch_array();
+
+        if (!empty($checkadmin) && $username == $checkadmin['username'] && password_verify($password, $checkuser['password']) 
+        && $checktype == $checkadmin['role_id'] && $checktype != 1) {
+            
+            $_SESSION['admin'] = $username;
+            setcookie("admin", $username, time() + 300, "/");
+            header("Location:admin.php");
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navbar</title>
+    <!--CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--JavaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <style>
 /* Navbar */
 .navbar {
@@ -115,15 +161,30 @@ $current_page = basename($_SERVER['PHP_SELF']); // Lấy tên file hiện tại
 <div class="navbar">
     <div>
         <a href="Home.php" data-lang-key="home" class="<?php echo ($current_page == 'Home.php') ? 'active' : ''; ?>">TRANG CHỦ</a>
-        <a href="news.php" data-lang-key="news" class="<?php echo ($current_page == 'news.php') ? 'active' : ''; ?>">TIN TỨC</a>
-        <a href="about.php" data-lang-key="about" class="<?php echo ($current_page == 'about.php') ? 'active' : ''; ?>">GIỚI THIỆU</a>
+        <a href="#" data-lang-key="news" class="<?php echo ($current_page == 'news.php') ? 'active' : ''; ?>">TIN TỨC</a>
+        <a href="#" data-lang-key="about" class="<?php echo ($current_page == 'about.php') ? 'active' : ''; ?>">GIỚI THIỆU</a>
         <a href="book_management.php" data-lang-key="book_management" class="<?php echo ($current_page == 'book_management.php') ? 'active' : ''; ?>">QUẢN LÝ SÁCH</a>
-        <a href="borrow_return.php" data-lang-key="borrow_return" class="<?php echo ($current_page == 'borrow_return.php') ? 'active' : ''; ?>">QUẢN LÝ MƯỢN - TRẢ SÁCH</a>
+        <a href="Module-Mượn-Trả/book-lending-returning.php" data-lang-key="book-lending-returning.php" class="<?php echo ($current_page == 'book-lending-returning.php') ? 'active' : ''; ?>">QUẢN LÝ MƯỢN - TRẢ SÁCH</a>
         <a href="Search_violations.php" data-lang-key="violation" class="<?php echo ($current_page == 'Handle_violations.php' || $current_page == 'Information_violations.php' || $current_page == 'Search_violations.php') ? 'active' : ''; ?>">XỬ LÝ VI PHẠM</a>
-        <a href="guide.php" data-lang-key="guide" class="<?php echo ($current_page == 'guide.php') ? 'active' : ''; ?>">HƯỚNG DẪN</a>
+        <a href="#" data-lang-key="guide" class="<?php echo ($current_page == 'guide.php') ? 'active' : ''; ?>">HƯỚNG DẪN</a>
     </div>
+    <!--session & cookei-->
+    <div style = "float: right">
+        <?php
+            if (isset($_SESSION["admin"]) || isset($_COOKIE["admin"])){
+                $username = isset($_SESSION["admin"])?$_SESSION["admin"]:$_COOKIE["admin"];
+        ?>
+        <span style = "color : white">
+            Xin chào <?php echo $username; ?>
+        </span>
+        <a href="../pages/logout.php" data-lang-key="login"><i class="fas fa-user"></i> Đăng xuất</a>
+        <?php }
+            else {?>
+            <a href="../pages/login.php" data-lang-key="login" ><i class="fas fa-user"></i> Đăng nhập</a>
+        <?php } ?>
+    </div>
+    
     <div class="user">
-        <a href="../pages/login.php" data-lang-key="login"><i class="fas fa-user"></i> Đăng nhập</a>
         <img src="https://cdn-icons-png.flaticon.com/512/197/197473.png" alt="Vietnam" 
              onclick="changeLanguage('vi')" style="cursor: pointer;">
         <img src="https://cdn-icons-png.flaticon.com/512/197/197374.png" alt="English" 

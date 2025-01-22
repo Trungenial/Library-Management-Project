@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if ($_SESSION['admin'] == null || $_SESSION['admin'] == '' || !isset($_SESSION['admin'])) {
+    header('Location: ../index.php');
+    exit();
+} else {
+?>
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -30,7 +38,7 @@
 <div class="violation-scrollable mt-4">
     <table class="table table-bordered table-striped"><tbody>
         <?php
-$conn = new mysqli('localhost', 'root', '', 'library');
+$conn = new mysqli('localhost', 'trntru6_library', 'group1', 'trntru6_library');
 if ($conn->connect_error) {
     die("Kết nối thất bại: " . $conn->connect_error);
 }
@@ -138,7 +146,7 @@ document.getElementById('violationReportBtn').addEventListener('click', function
         return;
     }
 
-    const url = `Handle_violations.php?book_loan_id=${encodeURIComponent(selectedBookLoanId)}`;
+    const url = `handle_violations.php?book_loan_id=${encodeURIComponent(selectedBookLoanId)}`;
     window.location.href = url;
 });
 
@@ -154,3 +162,5 @@ document.getElementById('violationReportBtn').addEventListener('click', function
     
 </body>
 </html>
+<?php
+}

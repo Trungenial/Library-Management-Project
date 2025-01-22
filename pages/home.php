@@ -1,7 +1,9 @@
 <?php
+    session_start();
     include_once('config.php');
 
     $thongbao = "";
+    $x = $_POST['submit'];
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -70,15 +72,6 @@
             </button>
         <?php } ?>
     </div>
-    <!-- Button trigger modal 
-    <button type="button" class="btn btn-success btn-lg mt-3 m-3 float-end" data-bs-toggle="modal" data-bs-target="#login">
-        Đăng nhập
-    </button>
-    <form method="POST" action="logout.php">
-        <button type="submit" class="btn btn-success btn-lg mt-3 float-end" id="submit" name="submit">
-            Đăng xuất
-        </button>
-    </form>-->
     <!-- Modal -->
     <div class="modal fade" id="login" tabindex="-1" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog">

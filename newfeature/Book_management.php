@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if ($_SESSION['admin'] == null || $_SESSION['admin'] == '' || !isset($_SESSION['admin'])) {
+    header('Location: ../index.php');
+    exit();
+} else {
+?>
+<?php
 require 'connect_data.php'; // Kết nối database
 $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 $searchResults = [];
@@ -836,10 +844,12 @@ function editBook(bookId) {
           <div class="wrapper">
               <h3 class="text-center">BÁO CÁO TỔNG QUAN THƯ VIỆN</h3>
               <div class="dashboard-container">
-                  <iframe title="Revenue Opportunities" src="https://app.powerbi.com/view?r=eyJrIjoiYjBiMjI5YmYtZTZlNS00Y2E2LWExZDQtZGZlZWM5OTk4NDdhIiwidCI6ImFmMWYzNzUzLTM5MjUtNGU2Zi05NDliLTk3YzAwNzMyMDgwMyIsImMiOjEwfQ%3D%3D" frameborder="0" allowfullscreen></iframe>
+                  <iframe title="Revenue Opportunities" src="https://app.powerbi.com/view?r=eyJrIjoiMzgxNDVhY2MtMDQ0OC00MTM3LTk4ZjQtZDE3NTgxMGIxMDJjIiwidCI6ImFmMWYzNzUzLTM5MjUtNGU2Zi05NDliLTk3YzAwNzMyMDgwMyIsImMiOjEwfQ%3D%3D" frameborder="0" allowfullscreen></iframe>
               </div>
           </div>
       </div>
   </div>
 </body>
 </html>
+<?php
+}

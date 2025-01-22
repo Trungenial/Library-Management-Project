@@ -1,4 +1,11 @@
+<?php
+session_start();
 
+if ($_SESSION['admin'] == null || $_SESSION['admin'] == '' || !isset($_SESSION['admin'])) {
+    header('Location: ../index.php');
+    exit();
+} else {
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -55,7 +62,7 @@
                 <tbody>
                 <tbody>
                 <?php
-$conn = new mysqli('localhost', 'root', '', 'library');
+$conn = new mysqli('localhost', 'trntru6_library', 'group1', 'trntru6_library');
 if ($conn->connect_error) {
     die("Kết nối thất bại: " . $conn->connect_error);
 }
@@ -125,3 +132,5 @@ $conn->close();
     
 </body>
 </html>
+<?php
+}

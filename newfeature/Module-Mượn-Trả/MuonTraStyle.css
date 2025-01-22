@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.muonTraModule{
+    overflow: auto;
+    display: flex;
+    margin: 0 10px;
+    flex-direction: column;
+}
+.muonTra__header {
+    background: url("./Image/ảnh\ bài\ thư\ viện\ hub.jpg");
+    background-size: cover;
+    position: relative; 
+    background-color: #003366;
+}
+
+.muonTra__header .logo {
+    position: absolute;
+    margin-top: 7px;
+    margin-left: 10px;
+    height: 150px;
+    width: auto;
+}
+
+.muonTra__header .library {
+    object-position: 0% 75%;
+    max-height: 150px;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.muonTra__header h2.NH {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    color: white;
+}
+
+.muonTra__header .canhan {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    position: absolute;  
+    top: 10px;
+    right: 10px;
+    background-color: rgba(207, 207, 193, 0.5);
+    border-radius: 3px;
+}
+
+.muonTra__header .canhan li {
+    padding: 4px;
+}
+
+.muonTra__header .canhan li a {
+    width: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.muonTra__header .canhan li a:hover {
+    color: #ffcc00;
+}
+
+.muonTra__container{
+    flex: 1;
+    padding-bottom: 200px;
+}
+
+.navigation_bar {
+    background-color: #003366;
+}
+
+.navigation_bar .navBar {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.navigation_bar .navBar li {
+    margin: 0 15px;
+}
+
+.navigation_bar .navBar li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.navigation_bar .navBar li a:hover,
+.navigation_bar .navBar li a.active {
+    color: #defb3a;
+    background-color: #0c253e;
+}
+
+.searchingBox {
+    margin: 20px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.searchingBox .search {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.searchingBox .search th{
+    padding-right: 5px;
+}
+.searchingBox .search td{
+    padding-right: 15px;
+}
+
+.searchingBox .search th,
+.searchingBox .search td {
+    text-align: left;
+}
+
+.searchingBox .search input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    height: 20px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.searchingBox .search input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #003366;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.searchingBox .search input[type="submit"]:hover {
+    background-color: #ffcc00;
+}
+
+.resultBox table {
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.resultBox th,
+.resultBox td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.resultBox th {
+    background-color: #003366;
+    color: white;
+}
+
+.resultBox tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.resultBox tr:hover {
+    background-color: #f1f1f1;
+}
+
+.resultBox td {
+    color: #555;
+}
+
+footer {
+    background-color: #003366;
+    color: white;
+    padding: 20px 30px;
+    text-align: center;
+}
+
+footer a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.grid_coloumn a:hover, 
+.grid_coloumn a.active { 
+    text-decoration: none;
+    color: white;
+    cursor: pointer; 
+}
+
+
+@media (max-width: 768px) {
+    .muonTra__header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .muonTra__header .logo, .muonTra__header .library {
+        width: 100px;
+    }
+
+    .navigation_bar .navBar {
+        flex-direction: column;
+    }
+}
+
+.muonTra__footer{
+    border-top: 4px solid rgb(48, 48, 217);
+    color: white;
+    background-color: #003366;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.muonTra__footer .grid{
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.footer_heading h4{
+    margin-top: 8px;
+}
+
+.footer_heading h5{
+    margin-top: 8px;
+}
+
+.muonTra__footer .grid_row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.muonTra__footer  .grid_coloumn{
+    padding-right: 5px; 
+    padding-left: 5px;
+    width: 25%;
+    text-align: left;
+}
+
+.footer-item{
+    padding: 2px;
+    text-decoration: none;
+    font-size:small;
+    list-style: none;
+    padding-top: 8px;
+
+}
+.li .footer-item:hover{
+    color: var(white);
+}
+.footer-item_icon
+{
+    font-size: small;
+    margin-left: -4px;
+    margin-right: 6px;
+}
+
+.infor{
+    text-decoration: none;
+}
+
+.hrline{
+    width: 40%; 
+    height: 1px; 
+    background-color: white; 
+    border: 0;
+    margin-bottom: 5px;
+}

@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if ($_SESSION['admin'] == null || $_SESSION['admin'] == '' || !isset($_SESSION['admin'])) {
+    header('Location: ../index.php');
+    exit();
+} else {
+?>
+<?php
 require 'connect_data.php';
 
 $bookLoanId = isset($_GET['book_loan_id']) ? intval($_GET['book_loan_id']) : 0;
@@ -284,4 +292,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </script>
 </body>
 </html>
-
+<?php
+}

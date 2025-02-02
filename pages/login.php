@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once ('config.php');?>
+    include_once ('../php/config.php');?>
 <?php
     $thongbao = "";
     if (isset($_POST['submit'])){

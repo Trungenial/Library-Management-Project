@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 10.123.0.163:3306
--- Generation Time: Jan 15, 2025 at 01:10 AM
--- Server version: 8.0.32
--- PHP Version: 8.2.26
+-- Host: 127.0.0.1:3306
+-- Generation Time: Feb 02, 2025 at 02:24 PM
+-- Server version: 9.1.0
+-- PHP Version: 8.3.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `trntru6_library`
 --
-CREATE DATABASE IF NOT EXISTS `trntru6_library` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `trntru6_library`;
 
 -- --------------------------------------------------------
 
@@ -29,8 +27,9 @@ USE `trntru6_library`;
 -- Table structure for table `book`
 --
 
-CREATE TABLE `book` (
-  `book_id` int NOT NULL,
+DROP TABLE IF EXISTS `book`;
+CREATE TABLE IF NOT EXISTS `book` (
+  `book_id` int NOT NULL AUTO_INCREMENT,
   `book_title` varchar(300) DEFAULT NULL,
   `description` varchar(300) DEFAULT NULL,
   `quantity` int NOT NULL,
@@ -43,18 +42,23 @@ CREATE TABLE `book` (
   `category_id` int NOT NULL,
   `language_id` int NOT NULL,
   `author` varchar(50) DEFAULT NULL,
-  `img_url` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `img_url` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`book_id`),
+  KEY `fk_publisher_book` (`publisher_id`),
+  KEY `fk_supplier_book` (`supplier_id`),
+  KEY `fk_category_book` (`category_id`),
+  KEY `fk_language_book` (`language_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=519 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `book`
 --
 
 INSERT INTO `book` (`book_id`, `book_title`, `description`, `quantity`, `publication_year`, `height`, `width`, `base_price`, `publisher_id`, `supplier_id`, `category_id`, `language_id`, `author`, `img_url`) VALUES
-(1, 'Add believe.', 'Paper meet worker.\nAny sometimes now. With nor however south buy. Determine save look set.\nYard term knowledge. Occur learn letter leg. Specific even here full than them every.', 39, '2018', 20.45, 15.56, 394010, 3, 1, 18, 1, 'Michelle Stephens', NULL),
+(1, 'Add believ', 'Paper meet worker.\r\nAny sometimes now. With nor however south buy. Determine save look set.\r\nYard term knowledge. Occur learn letter leg. Specific even here full than them every.', 39, '2018', 20.45, 15.00, 394010, 3, 1, 18, 1, 'Michelle Stephen', '0'),
 (2, 'Prove reality dream institution.', 'Young ask drug collection become. Popular wrong easy law third senior. Almost small rock lot imagine. Population old point apply.', 54, '2002', 29.63, 19.57, 319490, 1, 5, 16, 2, 'Brandon Thompson', NULL),
 (3, 'American push city.', 'Way three brother which admit. Determine morning organization unit call main.\nSenior need culture agency boy even.', 15, '2023', 29.90, 15.73, 35924, 1, 1, 8, 5, 'Heather Walsh', NULL),
-(4, 'Computer interesting more.', 'Region think would share success surface data focus. Once four child. Race interesting painting which participant threat usually.\nPlay explain sea animal science order. Guess image rock movement do.', 66, '1993', 28.01, 13.57, 958431, 1, 2, 4, 5, 'Nathan Snyder', NULL),
+(4, 'Computer interesting more.', 'Region think would share success surface data focus. Once four child. Race interesting painting which participant threat usually.\r\nPlay explain sea animal science order. Guess image rock movement do.', 66, '1993', 28.01, 13.00, 958431, 1, 2, 4, 5, 'Nathan Snyder', '0'),
 (5, 'Marriage level.', 'Free support paper always. Window break picture brother tonight bit guy. To last ten activity response much. Throw laugh over.\nNice close society cup hot. Air south think adult.', 84, '2024', 22.74, 17.70, 85028, 3, 4, 2, 4, 'Brandon Wilson', NULL),
 (6, 'Throw keep whose price.', 'Room research ok. Over add popular science level read. Everybody enough soon.\nInvestment leg young teach set carry. Position eight worker fact democratic want. Picture later beautiful message.', 79, '2018', 23.86, 12.99, 358954, 2, 1, 3, 1, 'Ann Webb', NULL),
 (7, 'Manager us tonight example should.', 'War really forward in record near.\nFederal music information research effect drive water. Evidence growth serious participant fall.', 83, '2023', 24.09, 13.16, 305154, 3, 5, 20, 2, 'Dwayne Ferguson', NULL),
@@ -552,7 +556,25 @@ INSERT INTO `book` (`book_id`, `book_title`, `description`, `quantity`, `publica
 (497, 'Newspaper charge him term sometimes.', 'He about professional here official. Effect follow include speech avoid word ready religious. Including could partner. Professional scene true study tree trouble open you.', 20, '2015', 25.67, 18.78, 59458, 2, 3, 8, 1, 'Curtis York', NULL),
 (498, 'Pattern agreement.', 'Realize your citizen course.\nMovement cell far write. Say other water program low key. Car water page own.\nArm two response main lay. Hard college floor could watch. Left interview present four.', 90, '1992', 26.11, 11.94, 777110, 2, 1, 8, 2, 'Alyssa Johnson', NULL),
 (499, 'Vote moment several.', 'Chance kitchen capital far several stuff center build. Might new create number light. Government garden reason rule. Structure never allow he million.', 19, '2018', 24.27, 17.22, 274230, 2, 1, 14, 2, 'Allison Casey', NULL),
-(500, 'Factor against job popular.', 'Keep lot organization task eat. Culture watch yet imagine specific.\nPm accept class morning wall throw. Couple east cultural.', 54, '2008', 20.26, 11.23, 36161, 1, 3, 11, 1, 'Elizabeth Fleming', NULL);
+(500, 'Factor against job popular.', 'Keep lot organization task eat. Culture watch yet imagine specific.\nPm accept class morning wall throw. Couple east cultural.', 54, '2008', 20.26, 11.23, 36161, 1, 3, 11, 1, 'Elizabeth Fleming', NULL),
+(501, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(502, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(503, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(504, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(505, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(506, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(507, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(508, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(509, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(510, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(511, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(512, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(513, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(514, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(515, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(516, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(517, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0'),
+(518, 'Doan van ve cuoc song hien dai', 'The blue eyes...', 5, '2014', 20.00, 14.98, 44, 3, 4, 9, 2, 'Adam', '0');
 
 -- --------------------------------------------------------
 
@@ -560,16 +582,21 @@ INSERT INTO `book` (`book_id`, `book_title`, `description`, `quantity`, `publica
 -- Table structure for table `book_loan`
 --
 
-CREATE TABLE `book_loan` (
-  `book_loan_id` int NOT NULL,
+DROP TABLE IF EXISTS `book_loan`;
+CREATE TABLE IF NOT EXISTS `book_loan` (
+  `book_loan_id` int NOT NULL AUTO_INCREMENT,
   `borrow_date` date DEFAULT NULL,
   `expected_return_date` date NOT NULL,
   `actual_return_date` date DEFAULT NULL,
   `renewal_count` int NOT NULL,
   `student_id` int NOT NULL,
   `book_id` int NOT NULL,
-  `librarian_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `librarian_id` int NOT NULL,
+  PRIMARY KEY (`book_loan_id`),
+  KEY `student_id` (`student_id`),
+  KEY `fk_book_book_loan` (`book_id`),
+  KEY `fk_librarian_book_loan` (`librarian_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `book_loan`
@@ -5583,16 +5610,31 @@ INSERT INTO `book_loan` (`book_loan_id`, `borrow_date`, `expected_return_date`, 
 (4999, '2023-12-16', '2023-12-30', '2023-12-30', 0, 169, 413, 8),
 (5000, '2023-11-08', '2023-11-22', '2023-11-22', 0, 221, 58, 8);
 
+--
+-- Triggers `book_loan`
+--
+DROP TRIGGER IF EXISTS `auto_expected_return_date`;
+DELIMITER $$
+CREATE TRIGGER `auto_expected_return_date` BEFORE INSERT ON `book_loan` FOR EACH ROW BEGIN
+    IF NEW.borrow_date IS NOT NULL THEN
+        SET NEW.expected_return_date = DATE_ADD(NEW.borrow_date, INTERVAL 14 DAY);
+    END IF;
+END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `category`
 --
 
-CREATE TABLE `category` (
-  `category_id` int NOT NULL,
-  `category_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE IF NOT EXISTS `category` (
+  `category_id` int NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(50) NOT NULL,
+  PRIMARY KEY (`category_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `category`
@@ -5626,10 +5668,12 @@ INSERT INTO `category` (`category_id`, `category_name`) VALUES
 -- Table structure for table `language`
 --
 
-CREATE TABLE `language` (
-  `language_id` int NOT NULL,
-  `language_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+DROP TABLE IF EXISTS `language`;
+CREATE TABLE IF NOT EXISTS `language` (
+  `language_id` int NOT NULL AUTO_INCREMENT,
+  `language_name` varchar(50) NOT NULL,
+  PRIMARY KEY (`language_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `language`
@@ -5648,15 +5692,18 @@ INSERT INTO `language` (`language_id`, `language_name`) VALUES
 -- Table structure for table `librarian`
 --
 
-CREATE TABLE `librarian` (
-  `librarian_id` int NOT NULL,
+DROP TABLE IF EXISTS `librarian`;
+CREATE TABLE IF NOT EXISTS `librarian` (
+  `librarian_id` int NOT NULL AUTO_INCREMENT,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `phone_number` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `email` varchar(50) NOT NULL,
   `address` varchar(200) NOT NULL,
-  `account_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `account_id` int DEFAULT NULL,
+  PRIMARY KEY (`librarian_id`),
+  KEY `account_id` (`account_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `librarian`
@@ -5680,13 +5727,15 @@ INSERT INTO `librarian` (`librarian_id`, `first_name`, `last_name`, `phone_numbe
 -- Table structure for table `publisher`
 --
 
-CREATE TABLE `publisher` (
-  `publisher_id` int NOT NULL,
+DROP TABLE IF EXISTS `publisher`;
+CREATE TABLE IF NOT EXISTS `publisher` (
+  `publisher_id` int NOT NULL AUTO_INCREMENT,
   `publisher_name` varchar(50) NOT NULL,
   `phone_number` varchar(50) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `address` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `address` varchar(200) NOT NULL,
+  PRIMARY KEY (`publisher_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `publisher`
@@ -5705,9 +5754,11 @@ INSERT INTO `publisher` (`publisher_id`, `publisher_name`, `phone_number`, `emai
 -- Table structure for table `role`
 --
 
-CREATE TABLE `role` (
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE IF NOT EXISTS `role` (
   `role_id` tinyint NOT NULL,
-  `role_name` varchar(20) NOT NULL
+  `role_name` varchar(20) NOT NULL,
+  PRIMARY KEY (`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -5725,8 +5776,9 @@ INSERT INTO `role` (`role_id`, `role_name`) VALUES
 -- Table structure for table `student`
 --
 
-CREATE TABLE `student` (
-  `student_id` int NOT NULL,
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE IF NOT EXISTS `student` (
+  `student_id` int NOT NULL AUTO_INCREMENT,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `class` varchar(10) DEFAULT NULL,
@@ -5734,8 +5786,11 @@ CREATE TABLE `student` (
   `phone_number` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `email` varchar(50) NOT NULL,
   `address` varchar(200) NOT NULL,
-  `account_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `account_id` int DEFAULT NULL,
+  PRIMARY KEY (`student_id`),
+  UNIQUE KEY `account_id_2` (`account_id`),
+  KEY `account_id` (`account_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `student`
@@ -6751,13 +6806,15 @@ INSERT INTO `student` (`student_id`, `first_name`, `last_name`, `class`, `course
 -- Table structure for table `supplier`
 --
 
-CREATE TABLE `supplier` (
-  `supplier_id` int NOT NULL,
+DROP TABLE IF EXISTS `supplier`;
+CREATE TABLE IF NOT EXISTS `supplier` (
+  `supplier_id` int NOT NULL AUTO_INCREMENT,
   `supplier_name` varchar(50) NOT NULL,
   `phone_number` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `address` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `address` varchar(200) NOT NULL,
+  PRIMARY KEY (`supplier_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `supplier`
@@ -6776,13 +6833,17 @@ INSERT INTO `supplier` (`supplier_id`, `supplier_name`, `phone_number`, `email`,
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `ID` int NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `ID` int NOT NULL AUTO_INCREMENT,
   `username` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role_id` tinyint DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `role_id` tinyint DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `username` (`username`),
+  KEY `role_id` (`role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1011 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
@@ -7807,8 +7868,9 @@ INSERT INTO `users` (`ID`, `username`, `password`, `email`, `role_id`) VALUES
 -- Table structure for table `violation_report`
 --
 
-CREATE TABLE `violation_report` (
-  `violation_report_id` int NOT NULL,
+DROP TABLE IF EXISTS `violation_report`;
+CREATE TABLE IF NOT EXISTS `violation_report` (
+  `violation_report_id` int NOT NULL AUTO_INCREMENT,
   `description` varchar(300) DEFAULT NULL,
   `report_date` date NOT NULL,
   `number_of_damaged_pages` int DEFAULT NULL,
@@ -7816,8 +7878,12 @@ CREATE TABLE `violation_report` (
   `fine_amount` int DEFAULT NULL,
   `student_id` int NOT NULL,
   `book_id` int NOT NULL,
-  `librarian_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `librarian_id` int NOT NULL,
+  PRIMARY KEY (`violation_report_id`),
+  KEY `fk_student_violation_report` (`student_id`),
+  KEY `fk_book_violation_report` (`book_id`),
+  KEY `fk_librarian_violation_report` (`librarian_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `violation_report`
@@ -7873,156 +7939,8 @@ INSERT INTO `violation_report` (`violation_report_id`, `description`, `report_da
 (47, 'Yourself agency house look. Suggest fund who respond political about.\nBase stop together born understand rest near. Guess away use no hope laugh.', '2024-11-22', 33, 'Phạt tiền', 48279, 19, 372, 3),
 (48, 'Take which author thing risk.\nBox bed line. Race sound picture beautiful staff.\nListen wife surface analysis standard. Number mouth executive family. Father amount almost often board.', '2024-01-06', 22, 'Trả sách', 0, 760, 49, 3),
 (49, 'Between move back amount college a.\nShoulder education ok black rich few. See meeting off door follow live option. Hotel bring of information accept instead child.', '2024-10-07', 38, 'Phạt tiền', 449152, 125, 117, 8),
-(50, '', '2025-01-14', 0, '', 0, 1, 304, 10);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `book`
---
-ALTER TABLE `book`
-  ADD PRIMARY KEY (`book_id`),
-  ADD KEY `fk_publisher_book` (`publisher_id`),
-  ADD KEY `fk_supplier_book` (`supplier_id`),
-  ADD KEY `fk_category_book` (`category_id`),
-  ADD KEY `fk_language_book` (`language_id`);
-
---
--- Indexes for table `book_loan`
---
-ALTER TABLE `book_loan`
-  ADD PRIMARY KEY (`book_loan_id`),
-  ADD KEY `student_id` (`student_id`),
-  ADD KEY `fk_book_book_loan` (`book_id`),
-  ADD KEY `fk_librarian_book_loan` (`librarian_id`);
-
---
--- Indexes for table `category`
---
-ALTER TABLE `category`
-  ADD PRIMARY KEY (`category_id`);
-
---
--- Indexes for table `language`
---
-ALTER TABLE `language`
-  ADD PRIMARY KEY (`language_id`);
-
---
--- Indexes for table `librarian`
---
-ALTER TABLE `librarian`
-  ADD PRIMARY KEY (`librarian_id`),
-  ADD KEY `account_id` (`account_id`);
-
---
--- Indexes for table `publisher`
---
-ALTER TABLE `publisher`
-  ADD PRIMARY KEY (`publisher_id`);
-
---
--- Indexes for table `role`
---
-ALTER TABLE `role`
-  ADD PRIMARY KEY (`role_id`);
-
---
--- Indexes for table `student`
---
-ALTER TABLE `student`
-  ADD PRIMARY KEY (`student_id`),
-  ADD UNIQUE KEY `account_id_2` (`account_id`),
-  ADD KEY `account_id` (`account_id`);
-
---
--- Indexes for table `supplier`
---
-ALTER TABLE `supplier`
-  ADD PRIMARY KEY (`supplier_id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `username` (`username`),
-  ADD KEY `role_id` (`role_id`);
-
---
--- Indexes for table `violation_report`
---
-ALTER TABLE `violation_report`
-  ADD PRIMARY KEY (`violation_report_id`),
-  ADD KEY `fk_student_violation_report` (`student_id`),
-  ADD KEY `fk_book_violation_report` (`book_id`),
-  ADD KEY `fk_librarian_violation_report` (`librarian_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `book`
---
-ALTER TABLE `book`
-  MODIFY `book_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=501;
-
---
--- AUTO_INCREMENT for table `book_loan`
---
-ALTER TABLE `book_loan`
-  MODIFY `book_loan_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5001;
-
---
--- AUTO_INCREMENT for table `category`
---
-ALTER TABLE `category`
-  MODIFY `category_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT for table `language`
---
-ALTER TABLE `language`
-  MODIFY `language_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `librarian`
---
-ALTER TABLE `librarian`
-  MODIFY `librarian_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `publisher`
---
-ALTER TABLE `publisher`
-  MODIFY `publisher_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `student`
---
-ALTER TABLE `student`
-  MODIFY `student_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
-
---
--- AUTO_INCREMENT for table `supplier`
---
-ALTER TABLE `supplier`
-  MODIFY `supplier_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1011;
-
---
--- AUTO_INCREMENT for table `violation_report`
---
-ALTER TABLE `violation_report`
-  MODIFY `violation_report_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+(50, '', '2025-01-14', 0, '', 0, 1, 304, 10),
+(51, '- Hư sách:\r\n- Mất sách:', '2025-01-15', 0, '', 163562, 279, 66, 10);
 
 --
 -- Constraints for dumped tables
